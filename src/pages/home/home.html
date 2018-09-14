@@ -1,14 +1,24 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Listar
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <ion-list *ngFor="let data of dataList">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="https://api.adorable.io/avatars/285/abott@adorable.png">
+          </ion-avatar>
+          <h2>{{data.nombre_completo}}</h2>
+          <h3>{{data.cedula}}</h3>
+          <p>{{data.ciudad}}</p>
+          <p>{{data.email}}</p>
+          <p>{{data.telefono}}</p>
+          <button ion-button clear (click)="edit(data)">Editar</button>
+          <button ion-button clear (click)="delete(data.cedula)">Eliminar</button>
+        </ion-item>
+      </ion-list>
 </ion-content>
